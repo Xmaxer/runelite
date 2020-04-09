@@ -118,6 +118,8 @@ public class GrandExchangePlugin extends Plugin
 	{
 	};
 
+	private static final String HIGH_ALCHEMY_PRICE_TEXT = "<br>High Alchemy Price: ";
+
 	static final String SEARCH_GRAND_EXCHANGE = "Search Grand Exchange";
 
 	private static final int MAX_RESULT_COUNT = 250;
@@ -702,6 +704,12 @@ public class GrandExchangePlugin extends Plugin
 			{
 				text += BUY_LIMIT_GE_TEXT + QuantityFormatter.formatNumber(itemStats.getGeLimit());
 			}
+		}
+
+		if (config.enabledAlchPrices())
+		{
+			final ItemComposition itemComposition = itemManager.getItemComposition(itemId);
+			text += HIGH_ALCHEMY_PRICE_TEXT + QuantityFormatter.formatNumber(itemComposition.getPrice() * 0.6);
 		}
 
 		geText.setText(text);

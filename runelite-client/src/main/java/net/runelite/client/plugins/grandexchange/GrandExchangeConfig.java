@@ -118,4 +118,15 @@ public interface GrandExchangeConfig extends Config
 	{
 		return GrandExchangeSearchMode.DEFAULT;
 	}
+
+	@ConfigItem(
+		position = 9,
+		keyName = "enableAlchPrices",
+		name = "Enable High Alchemy prices in GE",
+		description = "Shows the High Alchemy Prices on the GE"
+	)
+	default boolean enabledAlchPrices()
+	{
+		return false;
+	}
 }
